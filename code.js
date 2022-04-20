@@ -124,7 +124,9 @@ window.onkeyup = function (e) {
 
     e.keyCode === 37 && handleLeft();
 
-    e.keyCode === 13 && handlePickup();
+    e.keyCode === 65 && handlePickup();
+
+    e.keyCode === 83 && handleStartGame();
   }
 };
 
