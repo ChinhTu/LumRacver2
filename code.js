@@ -1,11 +1,14 @@
 const rows = 12;
 const columns = 13;
 const blackPoints = 5;
+
 let redPoint = {
   redX: 0,
   redY: 0,
 };
-const arrBlackPoint = [];
+
+localStorage.setItem("redPoint", JSON.stringify(redPoint));
+let arrBlackPoint = [];
 let isStartGame = false;
 
 const $ = (value) => {
@@ -41,10 +44,8 @@ const board = $("board");
 
 const ReloadGround = () => {
   $("playGround").remove();
-  const playGround = document.createElement("div");
-  playGround.setAttribute("id", "playGround");
-  playGround.setAttribute("class", "play-ground");
-  board.append(playGround);
+  board.innerHTML = `<div id="playGround" class="play-ground"></div>`;
+
   for (let i = 0; i <= rows; i++)
     for (let j = 0; j <= columns; j++) {
       const square = document.createElement("div");
@@ -107,6 +108,12 @@ const handlePickup = () => {
     if (item.x == redPoint.redX && item.y == redPoint.redY) {
       arrBlackPoint.splice(arrBlackPoint.indexOf(item), 1);
       ReloadGround();
+      // let newRedPoint = {
+      //   redX: b,
+      //   redY: ,
+      // };
+      // const redPoint = JSON.parse(localStorage.getItem("redPoint"));
+      // localStorage.setItem("redPoint", JSON.stringify(newRedPoint));
     }
     if (arrBlackPoint.length == 0) {
       alert("You Win");
@@ -126,13 +133,18 @@ window.onkeyup = function (e) {
 
     e.keyCode === 65 && handlePickup();
 
-    e.keyCode === 83 && handleStartGame();
+    e.keyCode === 115 && handleStartGame();
   }
 };
 
 const handleStartGame = () => {
+  redPoint = {
+    redX: 0,
+    redY: 0,
+  };
+  arrBlackPoint = [];
+  randomArrBlackPoints();
   isStartGame = true;
   alert("Start Game");
-  randomArrBlackPoints();
   ReloadGround();
 };
