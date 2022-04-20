@@ -102,6 +102,32 @@ const handleRight = () => {
   }
 };
 
+const handlePickup = () => {
+  arrBlackPoint.map((item) => {
+    if (item.x == redPoint.redX && item.y == redPoint.redY) {
+      arrBlackPoint.splice(arrBlackPoint.indexOf(item), 1);
+      ReloadGround();
+    }
+    if (arrBlackPoint.length == 0) {
+      alert("You Win");
+    }
+  });
+};
+
+window.onkeyup = function (e) {
+  if (isStartGame) {
+    e.keyCode === 38 && handleUp();
+
+    e.keyCode === 40 && handleDown();
+
+    e.keyCode === 39 && handleRight();
+
+    e.keyCode === 37 && handleLeft();
+
+    e.keyCode === 13 && handlePickup();
+  }
+};
+
 const handleStartGame = () => {
   isStartGame = true;
   alert("Start Game");
