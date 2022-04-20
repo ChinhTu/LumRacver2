@@ -1,0 +1,80 @@
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 200px auto;
+  width: 800px;
+  height: 400px;
+  background: #3f46f1;
+  border: 5px solid #000af7;
+  box-shadow: 5px 8px 10px 6px rgba(0, 0, 0, 0.25);
+  border-radius: 40px;
+}
+
+.controller {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  flex-direction: row;
+  width: 150px;
+  height: 150px;
+}
+
+.arrow {
+  cursor: pointer;
+}
+
+.play-ground {
+  width: 360px;
+  height: 360px;
+  background: #c4c4c4;
+  border: 5px solid #000af7;
+  box-sizing: border-box;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.square {
+  width: 25px;
+  position: relative;
+  border: 1px solid black;
+}
+
+.Key {
+  color: #ffffff;
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 48.41px;
+  width: 50px;
+  height: 50px;
+  background: #000af7;
+  border: 3px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.red {
+  background-color: red;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: relative;
+  z-index: 999;
+}
+
+.black {
+  background-color: black;
+  filter: blur(5px);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: relative;
+  z-index: 100;
+}
